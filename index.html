@@ -174,6 +174,14 @@
   .detail-text{text-align:left;}
   .detail-form h3{margin:0 0 .3em;}
   @media (max-width:760px){.detail-form-grid{grid-template-columns:1fr;}}
+  .checks{display:grid;gap:8px;grid-template-columns:1fr 1fr;margin-top:6px;}
+  .name-row{display:grid;gap:14px;grid-template-columns:1fr 1fr;}
+  .form-status{margin:0;font-size:.95rem;font-weight:600;}
+  .form-status.is-success{color:var(--switchback);}
+  .form-status.is-error{color:#8C2F16;}
+  @media (max-width:520px){
+    .checks,.name-row{grid-template-columns:1fr;}
+  }
   .light{background:var(--haze);}
   .dark{background:var(--ridge);color:var(--birch);}
   .dark h2{color:#fff;}
@@ -329,8 +337,56 @@
       </div>
     </div>
   </section>
-  <section class="light"><div class="wrap">
-    <p class="section-lede"><a href="index.html" style="color:var(--beacon);font-weight:600;">Gatlinburg Towing</a> provides 24-hour towing and roadside assistance across Gatlinburg and the surrounding Sevier County area. Whether your car quit on the Parkway during peak tourist traffic, your RV lost power on the way to a campground, or your truck slid off a wet mountain road near Wears Valley, we send a driver fast and get your vehicle where it needs to go. No membership, no runaround &mdash; one phone call and help is on the way.</p>
+  <section class="light" id="contact"><div class="wrap">
+    <div class="detail-form-grid">
+      <div class="detail-text">
+        <p class="section-lede"><a href="index.html" style="color:var(--beacon);font-weight:600;">Gatlinburg Towing</a> provides 24-hour towing and roadside assistance across Gatlinburg and the surrounding Sevier County area. Whether your car quit on the Parkway during peak tourist traffic, your RV lost power on the way to a campground, or your truck slid off a wet mountain road near Wears Valley, we send a driver fast and get your vehicle where it needs to go. No membership, no runaround &mdash; one phone call and help is on the way.</p>
+      </div>
+      <div class="detail-form">
+        <h3>Send Us a Message</h3>
+        <p class="section-lede">For anything urgent, call &mdash; this form is best for non-emergency questions, quotes, or follow-ups.</p>
+        <form id="home-contact-form" action="https://formspree.io/f/xoeejazk" method="POST" style="display:grid;gap:14px;margin-top:18px;">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_subject" value="New contact form submission &mdash; Gatlinburg Towing">
+          <input type="hidden" name="site" value="Gatlinburg Towing">
+          <div class="name-row">
+            <label style="display:grid;gap:6px;font-size:.92rem;font-weight:600;">First Name
+              <input type="text" name="first_name" required autocomplete="given-name" style="padding:12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:1rem;">
+            </label>
+            <label style="display:grid;gap:6px;font-size:.92rem;font-weight:600;">Last Name
+              <input type="text" name="last_name" required autocomplete="family-name" style="padding:12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:1rem;">
+            </label>
+          </div>
+          <label style="display:grid;gap:6px;font-size:.92rem;font-weight:600;">Email
+            <input type="email" name="email" required autocomplete="email" style="padding:12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:1rem;">
+          </label>
+          <label style="display:grid;gap:6px;font-size:.92rem;font-weight:600;">Phone
+            <input type="tel" name="phone" required autocomplete="tel" style="padding:12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:1rem;">
+          </label>
+          <fieldset style="border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:0;">
+            <legend style="font-size:.92rem;font-weight:600;padding:0 6px;">Service Needed (check all that apply)</legend>
+            <div class="checks">
+              <label for="home-emergency-towing" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-emergency-towing" name="service" value="Emergency Towing" style="width:16px;height:16px;">Emergency Towing</label>
+              <label for="home-accident-towing" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-accident-towing" name="service" value="Accident Towing" style="width:16px;height:16px;">Accident Towing</label>
+              <label for="home-mountain-towing" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-mountain-towing" name="service" value="Mountain Towing" style="width:16px;height:16px;">Mountain Towing</label>
+              <label for="home-camper-rv-towing" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-camper-rv-towing" name="service" value="Camper and RV Towing" style="width:16px;height:16px;">Camper and RV Towing</label>
+              <label for="home-long-distance-towing" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-long-distance-towing" name="service" value="Long-Distance Towing" style="width:16px;height:16px;">Long-Distance Towing</label>
+              <label for="home-private-property-towing" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-private-property-towing" name="service" value="Private Property Towing" style="width:16px;height:16px;">Private Property Towing</label>
+              <label for="home-vehicle-lockout" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-vehicle-lockout" name="service" value="Vehicle Lockout" style="width:16px;height:16px;">Vehicle Lockout</label>
+              <label for="home-jump-start" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-jump-start" name="service" value="Jump Start" style="width:16px;height:16px;">Jump Start</label>
+              <label for="home-gas-delivery" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-gas-delivery" name="service" value="Gas Delivery" style="width:16px;height:16px;">Gas Delivery</label>
+              <label for="home-flat-tire-change" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-flat-tire-change" name="service" value="Flat Tire Change" style="width:16px;height:16px;">Flat Tire Change</label>
+              <label for="home-other" style="display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:400;"><input type="checkbox" id="home-other" name="service" value="Other" style="width:16px;height:16px;">Other</label>
+            </div>
+          </fieldset>
+          <label style="display:grid;gap:6px;font-size:.92rem;font-weight:600;">Message
+            <textarea name="message" rows="3" style="padding:12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:1rem;resize:vertical;"></textarea>
+          </label>
+          <button type="submit" class="cta-primary" style="border:0;cursor:pointer;justify-self:start;">Send Message</button>
+          <p class="form-status" id="home-contact-status" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </div>
   </div></section>
 
   <section id="services"><div class="wrap">
@@ -392,5 +448,49 @@
   </div>
   <p class="fine-print">&copy; 2026 Gatlinburg Towing. Licensed &amp; insured. 24/7 towing, roadside assistance &amp; recovery across Gatlinburg, Gatlinburg, Sevierville, Wears Valley &amp; Sevier County, TN.</p>
 </footer>
+<script>
+(function(){
+  var form = document.getElementById('home-contact-form');
+  var status = document.getElementById('home-contact-status');
+  if(!form || !status){ return; }
+  form.addEventListener('submit', function(event){
+    event.preventDefault();
+    var button = form.querySelector('button[type="submit"]');
+    var data = new FormData(form);
+    status.hidden = true;
+    status.className = 'form-status';
+    status.textContent = '';
+    if(button){ button.disabled = true; }
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response){
+      if(response.ok){
+        form.reset();
+        status.hidden = false;
+        status.className = 'form-status is-success';
+        status.textContent = 'Thanks — we got your message. For anything urgent, call (865) 381-0045.';
+        return;
+      }
+      return response.json().then(function(body){
+        var message = 'Something went wrong sending that message. Please call (865) 381-0045.';
+        if(body && body.errors && body.errors.length){
+          message = body.errors.map(function(error){ return error.message; }).join(' ');
+        }
+        status.hidden = false;
+        status.className = 'form-status is-error';
+        status.textContent = message;
+      });
+    }).catch(function(){
+      status.hidden = false;
+      status.className = 'form-status is-error';
+      status.textContent = 'Something went wrong sending that message. Please call (865) 381-0045.';
+    }).then(function(){
+      if(button){ button.disabled = false; }
+    });
+  });
+})();
+</script>
 </body>
 </html>

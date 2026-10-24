@@ -174,6 +174,9 @@
   .detail-text{text-align:left;}
   .detail-form h3{margin:0 0 .3em;}
   @media (max-width:760px){.detail-form-grid{grid-template-columns:1fr;}}
+  .form-status{margin:0;font-size:.95rem;font-weight:600;}
+  .form-status.is-success{color:var(--switchback);}
+  .form-status.is-error{color:#8C2F16;}
   .light{background:var(--haze);}
   .dark{background:var(--ridge);color:var(--birch);}
   .dark h2{color:#fff;}
@@ -334,13 +337,15 @@
 <p class="section-lede"><strong>Phone:</strong> <a href="tel:+18653810045" style="color:var(--beacon);">(865) 381-0045</a> (24/7)<br><strong>Base:</strong> 715 E Parkway, Gatlinburg, TN 37738<br><strong>Hours:</strong> Open 24 hours, 365 days a year</p>
 <h3>Send Us a Message</h3>
 <p class="section-lede">For anything urgent, call &mdash; this form is best for non-emergency questions, quotes, or follow-ups.</p>
-<form action="https://formspree.io/f/xjgnpjqk" method="POST" style="display:grid;gap:14px;margin-top:18px;max-width:560px;">
+<form id="contact-form" action="https://formspree.io/f/xoeejazk" method="POST" style="display:grid;gap:14px;margin-top:18px;max-width:560px;">
   <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
   <input type="hidden" name="_subject" value="New contact form submission &mdash; Gatlinburg Towing">
+  <input type="hidden" name="site" value="Gatlinburg Towing">
   <label style="display:grid;gap:6px;font-weight:600;">Name<input type="text" name="name" required style="padding:12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:1rem;"></label>
   <label style="display:grid;gap:6px;font-weight:600;">Phone<input type="tel" name="phone" required style="padding:12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:1rem;"></label>
   <label style="display:grid;gap:6px;font-weight:600;">How can we help?<textarea name="message" rows="4" style="padding:12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:1rem;"></textarea></label>
   <button type="submit" class="cta-primary" style="border:none;cursor:pointer;">Send Message</button>
+  <p class="form-status" id="contact-form-status" role="status" aria-live="polite" hidden></p>
 </form></div></section>
 
   <section class="cta-final dark">
@@ -375,5 +380,49 @@
   </div>
   <p class="fine-print">&copy; 2026 Gatlinburg Towing. Licensed &amp; insured. 24/7 towing, roadside assistance &amp; recovery across Gatlinburg, Gatlinburg, Sevierville, Wears Valley &amp; Sevier County, TN.</p>
 </footer>
+<script>
+(function(){
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('contact-form-status');
+  if(!form || !status){ return; }
+  form.addEventListener('submit', function(event){
+    event.preventDefault();
+    var button = form.querySelector('button[type="submit"]');
+    var data = new FormData(form);
+    status.hidden = true;
+    status.className = 'form-status';
+    status.textContent = '';
+    if(button){ button.disabled = true; }
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response){
+      if(response.ok){
+        form.reset();
+        status.hidden = false;
+        status.className = 'form-status is-success';
+        status.textContent = 'Thanks — we got your message. For anything urgent, call (865) 381-0045.';
+        return;
+      }
+      return response.json().then(function(body){
+        var message = 'Something went wrong sending that message. Please call (865) 381-0045.';
+        if(body && body.errors && body.errors.length){
+          message = body.errors.map(function(error){ return error.message; }).join(' ');
+        }
+        status.hidden = false;
+        status.className = 'form-status is-error';
+        status.textContent = message;
+      });
+    }).catch(function(){
+      status.hidden = false;
+      status.className = 'form-status is-error';
+      status.textContent = 'Something went wrong sending that message. Please call (865) 381-0045.';
+    }).then(function(){
+      if(button){ button.disabled = false; }
+    });
+  });
+})();
+</script>
 </body>
 </html>
