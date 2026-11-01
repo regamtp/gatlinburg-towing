@@ -319,12 +319,12 @@
       <a href="/about-us">About Us</a>
       <a href="/contact-us">Contact Us</a>
     </nav>
-    <a class="call-button" href="tel:+18653810045" aria-label="Call Gatlinburg Towing">
-      <span class="beacon-dot" aria-hidden="true"></span>(865) 381-0045
+    <a class="call-button" href="tel:+18652779413" aria-label="Call Gatlinburg Towing">
+      <span class="beacon-dot" aria-hidden="true"></span>(865) 277-9413
     </a>
   </div>
 </header>
-<div class="mobile-call-bar"><a href="tel:+18653810045">Tap to Call (865) 381-0045</a></div>
+<div class="mobile-call-bar"><a href="tel:+18652779413">Tap to Call (865) 277-9413</a></div>
 <main id="main">
   <section class="hero" id="top" style="background:linear-gradient(180deg, rgba(15,38,32,.88) 0%, rgba(15,38,32,.55) 45%, rgba(15,38,32,.92) 100%), url(assets/index.jpg); background-size:cover; background-position:center;">
     <div class="hero-inner">
@@ -332,7 +332,7 @@
       <h1>Gatlinburg Towing Services</h1>
       <p class="hero-lede">Broken down on the Parkway? Slid off a mountain road? Locked out at your cabin? A local driver is standing by around the clock to get you and your vehicle moving again.</p>
       <div class="hero-actions">
-        <a class="cta-primary" href="tel:+18653810045">Call (865) 381-0045</a>
+        <a class="cta-primary" href="tel:+18652779413">Call (865) 277-9413</a>
         <a class="cta-secondary" href="#services">See All Services &darr;</a>
       </div>
     </div>
@@ -420,7 +420,7 @@
     <div class="wrap">
       <h2>Need a Tow in Gatlinburg Right Now?</h2>
       <p class="section-lede" style="color:#EAE6DA;">One call and a local driver is on the way.</p>
-      <a class="cta-primary" href="tel:+18653810045">Call (865) 381-0045</a>
+      <a class="cta-primary" href="tel:+18652779413">Call (865) 277-9413</a>
     </div>
   </section>
 </main>
@@ -433,7 +433,7 @@
       <p>Licensed &amp; insured.</p>
     </div>
     <div>
-      <p><a href="tel:+18653810045">(865) 381-0045</a></p>
+      <p><a href="tel:+18652779413">(865) 277-9413</a></p>
       <p><a href="mailto:info@gatlinburgtowingco.com">info@gatlinburgtowingco.com</a></p>
     </div>
     <div>
@@ -470,11 +470,11 @@
         form.reset();
         status.hidden = false;
         status.className = 'form-status is-success';
-        status.textContent = 'Thanks — we got your message. For anything urgent, call (865) 381-0045.';
+        status.textContent = 'Thanks — we got your message. For anything urgent, call (865) 277-9413.';
         return;
       }
       return response.json().then(function(body){
-        var message = 'Something went wrong sending that message. Please call (865) 381-0045.';
+        var message = 'Something went wrong sending that message. Please call (865) 277-9413.';
         if(body && body.errors && body.errors.length){
           message = body.errors.map(function(error){ return error.message; }).join(' ');
         }
@@ -485,7 +485,7 @@
     }).catch(function(){
       status.hidden = false;
       status.className = 'form-status is-error';
-      status.textContent = 'Something went wrong sending that message. Please call (865) 381-0045.';
+      status.textContent = 'Something went wrong sending that message. Please call (865) 277-9413.';
     }).then(function(){
       if(button){ button.disabled = false; }
     });
