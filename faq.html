@@ -6,6 +6,18 @@
 <title>Towing FAQ | Gatlinburg Towing</title>
 <meta name="description" content="Common questions about 24-hour towing and roadside assistance in Gatlinburg and the Smokies.">
 <link rel="canonical" href="https://gatlinburgtowingco.com/faq">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:image" content="https://gatlinburgtowingco.com/assets/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gatlinburg Towing Co">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gatlinburgtowingco.com/assets/og-image.webp">
+<meta name="twitter:image:alt" content="Gatlinburg Towing Co">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -144,11 +156,34 @@
   .header-inner{
     max-width:1120px;margin:0 auto;padding:12px 24px;
     display:flex;align-items:center;justify-content:space-between;gap:16px;
+    position:relative;
   }
   .brand{
+    position:relative;
+    flex:0 0 136px;
+    align-self:stretch;
+    line-height:0;
     font-family:var(--font-display);
     font-weight:800;text-transform:uppercase;font-size:1.05rem;
     text-decoration:none;color:var(--ridge);white-space:nowrap;
+  }
+  .brand-logo{
+    position:absolute;
+    z-index:110;
+    left:0;
+    top:-6px;
+    width:136px;
+    height:136px;
+    box-sizing:border-box;
+    display:block;
+    border-radius:50%;
+    border:4px solid var(--birch);
+    box-shadow:0 10px 22px rgba(0,0,0,.32);
+    background:transparent;
+  }
+  @media (max-width:680px){
+    .brand{flex-basis:96px;}
+    .brand-logo{width:96px;height:96px;top:auto;bottom:-48px;}
   }
   .brand span{display:block;font-size:.62rem;font-family:var(--font-mono);letter-spacing:.08em;color:var(--switchback);text-transform:uppercase;font-weight:600;}
   .main-nav{
@@ -218,12 +253,13 @@
     min-height:460px;
     display:flex;align-items:center;justify-content:center;
     background:
-      linear-gradient(180deg, rgba(15,38,32,.88) 0%, rgba(15,38,32,.55) 45%, rgba(15,38,32,.92) 100%),
+      linear-gradient(180deg, rgba(15,38,32,.44) 0%, rgba(15,38,32,.28) 45%, rgba(15,38,32,.46) 100%),
       none center/cover no-repeat;
     color:var(--birch);
     padding:64px 0 48px;overflow:hidden;
   }
-  .hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 24px;text-align:center;}
+  .hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:8px 28px 4px;text-align:center;border-radius:28px;background:radial-gradient(ellipse at 50% 42%, rgba(8,20,16,.40) 0%, rgba(8,20,16,.14) 56%, rgba(8,20,16,0) 78%);}
+  .hero h1,.hero .eyebrow,.hero-lede{text-shadow:0 2px 14px rgba(8,20,16,.95), 0 1px 3px rgba(8,20,16,.92);}
   .eyebrow{
     font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;
     font-size:.78rem;color:var(--beacon-light);margin-bottom:14px;
@@ -239,6 +275,10 @@
     border:1px solid var(--line-light);color:#fff;text-decoration:none;font-weight:600;
     padding:14px 22px;border-radius:999px;font-size:.95rem;
   }
+  .see-services{
+    background:var(--beacon);color:#fff;border:1px solid var(--beacon);
+  }
+  .see-services:hover{background:var(--beacon);color:#fff;border-color:var(--beacon);}
   .hero-note{font-size:.85rem;color:#C9C2AE;margin:0;}
 
   /* ---------- generic section spacing ---------- */
@@ -359,7 +399,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="/">Gatlinburg<span>Towing &amp; Recovery</span></a>
+    <a class="brand" href="/"><img class="brand-logo" src="/assets/brand/gatlinburg-badge-160.webp" srcset="/assets/brand/gatlinburg-badge-160.webp 160w, /assets/brand/gatlinburg-badge-320.webp 320w" sizes="(max-width: 680px) 96px, 136px" alt="Gatlinburg Towing Co" width="136" height="136"></a>
     <nav class="main-nav" aria-label="Primary">
       <div class="has-dropdown">
         <a class="nav-trigger" href="/#services">Services <span class="caret">&#9662;</span></a>
@@ -416,7 +456,7 @@
 </header>
 <div class="mobile-call-bar"><a href="tel:+18652779413">Tap to Call (865) 277-9413</a></div>
 <main id="main">
-  <section class="hero" id="top" style="background:linear-gradient(180deg, rgba(15,38,32,.88) 0%, rgba(15,38,32,.55) 45%, rgba(15,38,32,.92) 100%), url(assets/index.jpg); background-size:cover; background-position:center;">
+  <section class="hero" id="top" style="background:linear-gradient(180deg, rgba(15,38,32,.44) 0%, rgba(15,38,32,.28) 45%, rgba(15,38,32,.46) 100%), url(assets/index.jpg); background-size:cover; background-position:center;">
     <div class="hero-inner">
       <p class="eyebrow">FAQ &bull; Gatlinburg, TN</p>
       <h1>Towing Questions, Answered</h1>
